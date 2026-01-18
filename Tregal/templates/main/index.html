@@ -1,8 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'main/base.html' %}
+{% load static %}
 {% block title %}Home | Tregal Consult{% endblock %}
 {% block content %}
 
-<h1>Welcome to Tregal Consult</h1>
-<p>Your trusted consulting partner.</p>
+<div class="container mt-1">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/home/etp1.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/home/bus1.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'images/home/edu1.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
 
+<div class="container mt-5">
+    <h2 class="text-center">Welcome to Tregal Consult</h2>
+    <p class="text-center">Your trusted partner in business consulting and solutions. We provide expert advice and strategies to help your business thrive in today's competitive market.</p>
+</div>
 {% endblock %}

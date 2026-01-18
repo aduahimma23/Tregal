@@ -1,0 +1,30 @@
+/* ----------------------------
+   Tregal Consult Main Styles
+   ---------------------------- */
+
+/* Body settings */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #44053A;
+    padding: 40px;
+    font-size: 2em;
+    font-weight: 400;
+    color: white;
+}
+/* main-container styles */
+.main-container {
+    padding: 20px;
+}
+/* Carousel image settings */
+.carousel-inner{
+    height: 600px;
+    width: 100%;
+    object-fit: contain;
+}
