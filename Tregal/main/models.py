@@ -151,3 +151,13 @@ class PartnerInstitution(models.Model):
 
     def __str__(self):
         return self.name
+    
+class SpecialOffer(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    discount_percentage = models.DecimalField(max_digits=5, decimal_places=2)
+    valid_until = models.DateField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
