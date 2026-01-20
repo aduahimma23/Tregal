@@ -10,14 +10,92 @@ body {
     padding: 0;
 }
 
+/* Header styles */
+.header-container {
+    background-color: #FE7F2D;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.header-text {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
+}
+.header-btn {
+    background-color: #ffffff;
+    color: #FE7F2D;
+    padding: 0 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+.header-btn:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
 /* Navbar styles */
 nav {
-    background-color: #44053A;
-    padding: 40px;
-    font-size: 2em;
-    font-weight: 400;
-    color: white;
+    background-color: #F9F8F6;
+    font-size: 1em;
 }
+
+/* Navbar links spacing and hover */
+.navbar-nav .nav-item .nav-link {
+    margin: 0 10px;
+    font-weight: 100;
+    color: #333;
+    transition: color 0.3s, background 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffffff;
+    background-color: #FE7F2D;
+    border-radius: 5px;
+}
+
+/* Active link */
+.navbar-nav .nav-item .nav-link.active {
+    color: white;
+    background-color: #FE7F2D;
+    border-radius: 5px;
+}
+
+/* Navbar button styles */
+.navbar .btn {
+    border-radius: 20px;
+    padding: 0 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .navbar .d-flex {
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
 /* main-container styles */
 .main-container {
     padding: 20px;
@@ -27,4 +105,68 @@ nav {
     height: 600px;
     width: 100%;
     object-fit: contain;
+}
+
+/* Homepage Trending Tours Section */
+/* Make card image a fixed width and aligned left */
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-img-left {
+    width: 40%;
+    object-fit: cover;
+    border-radius: 0; 
+}
+
+.card .card-body {
+    width: 60%;
+    padding: 20px;
+}
+
+.trending-btn{
+    background-color: #FE7F2D;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+/* On medium screens and above, make it row */
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+    }
+}
+
+/* Package Details Page Styles */
+.package{
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.package-item {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.package-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #001BB7;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 300;
+    transition: background 0.3s;
+}
+
+.package-link:hover {
+    background-color: #0056b3;
 }

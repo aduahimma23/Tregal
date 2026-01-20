@@ -27,8 +27,114 @@
     </div>
 </div>
 
+<!-- Trending Tours Section -->
 <div class="container mt-5">
-    <h2 class="text-center">Welcome to Tregal Consult</h2>
-    <p class="text-center">Your trusted partner in business consulting and solutions. We provide expert advice and strategies to help your business thrive in today's competitive market.</p>
+   <h3 class="mb-4">Trending Tours</h3>
+   <div class="row">
+       <!-- Card 1 -->
+       <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card flex-md-row align-items-center h-100">
+                <img src="{% static 'images/home/tour1.jpg' %}" class="card-img-left" alt="Tour 1">
+                <div class="card-body">
+                    <h5 class="card-title">Explore the Mountains</h5>
+                    <p class="card-text">Experience the breathtaking views and fresh air of the mountains.</p>
+                    <a href="#" class="trending-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+       <!-- Card 2 -->
+       <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card flex-md-row align-items-center h-100">
+                <img src="{% static 'images/home/tour2.jpg' %}" class="card-img-left" alt="Tour 2">
+                <div class="card-body">
+                    <h5 class="card-title">Relax at the Beach</h5>
+                    <p class="card-text">Enjoy the sun and the waves at the most beautiful beaches.</p>
+                    <a href="#" class="trending-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+       <!-- Card 3 -->
+       <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card flex-md-row align-items-center h-100">
+                <img src="{% static 'images/home/tour3.jpg' %}" class="card-img-left" alt="Tour 3">
+                <div class="card-body">
+                    <h5 class="card-title">City Adventures</h5>
+                    <p class="card-text">Explore the city’s hidden gems and cultural spots.</p>
+                    <a href="#" class="trending-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+   </div>
 </div>
+
+<!-- Tour Packages Section -->
+<div class="container package mt-5 mb-5">
+   <h3 class="mb-4">Tour Packages</h3>
+   <p>Discover our exclusive tour packages designed to give you the best travel experience.</p>
+   
+   <!-- Package Links -->
+   <div class="chose-package">
+        <ul class="package-item">
+            <li><a class="package-link" href="">Africa</a></li>
+            <li><a class="package-link" href="">Asia</a></li>
+            <li><a class="package-link" href="">Europe</a></li>
+            <li><a class="package-link" href="">America</a></li>
+            <li><a class="package-link" href="">Australia</a></li>
+        </ul>
+   </div>
+
+    <div class="row g-4">
+        <!-- Package 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <img src="{% static 'images/packages/africa.jpg' %}" class="card-img-top" alt="Africa Tour">
+                <div class="card-body">
+                    <h5 class="card-title">African Safari</h5>
+                    <p class="card-text">
+                        <strong>Days:</strong> 7 <br>
+                        <strong>Price:</strong> $1500 <br>
+                        <strong>Start Date:</strong> 10 Feb 2026
+                    </p>
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+            <!-- Package 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <img src="{% static 'images/packages/asia.jpg' %}" class="card-img-top" alt="Asia Tour">
+                    <div class="card-body">
+                        <h5 class="card-title">Asian Adventure</h5>
+                        <p class="card-text">
+                            <strong>Days:</strong> 10 <br>
+                            <strong>Price:</strong> $1800 <br>
+                            <strong>Start Date:</strong> 5 Mar 2026
+                        </p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <img src="{% static 'images/packages/europe.jpg' %}" class="card-img-top" alt="Europe Tour">
+                    <div class="card-body">
+                        <h5 class="card-title">European Explorer</h5>
+                        <p class="card-text">
+                            <strong>Days:</strong> 8 <br>
+                            <strong>Price:</strong> $2000 <br>
+                            <strong>Start Date:</strong> 20 Apr 2026
+                        </p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+
 {% endblock %}
