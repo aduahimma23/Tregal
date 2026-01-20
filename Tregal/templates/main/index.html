@@ -31,6 +31,35 @@
     <div class="container mt-5">
         <h3 class="mb-4">Trending Tours</h3>
         <div class="row">
+
+            {% for item in destinations %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm destination-card">
+                <!-- Image -->
+                <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                <!-- Card Body -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="card-text text-muted mb-2">{{ item.description|truncatewords:18 }}</p>
+                    <ul class="list-unstyled mb-3 destination-info">
+                        <li><strong>Destination:</strong> {{ item.destination }}</li>
+                        <li><strong>Duration:</strong> {{ item.duration }}</li>
+                        <li><strong>Deadline:</strong> {{ item.deadline|date:"M d, Y" }}</li>
+                    </ul>
+                    <h5 class="text-primary">
+                        ${{ item.price }}
+                    </h5>
+                </div>
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-outline-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No trending destinations available.</p>
+        {% endfor %}
+
             <!-- Card 1 -->
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="card flex-md-row align-items-center h-100">

@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Our Services | Tregal Consult{% endblock %}
+{% block content %}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center mb-4">Our Services</h2>
+    <p class="text-center mb-5">
+        Professional services designed to meet your needs.
+    </p>
+
+    <div class="row">
+        {% for service in services %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm service-card">
+                
+                <!-- Service Image -->
+                <img src="{{ service.image.url }}" 
+                     class="card-img-top" 
+                     alt="{{ service.name }}">
+
+                <!-- Service Content -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ service.name }}</h5>
+                    <p class="card-text">
+                        {{ service.description|truncatewords:20 }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No services available yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
