@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Home | Tregal Consult{% endblock %}
+{% block content %}
+
+<section class="mission-section">
+    <div class="container">
+        <h1 class="mission-title">Our Mission</h1>
+        <p class="mission-content">{% if mission_statement %}
+            {{ mission_statement }}
+            {% else %}
+            At Tregal Consult, our mission is to provide innovative and sustainable solutions that empower businesses to achieve their goals while fostering a positive impact on society and the environment. We are committed to excellence, integrity, and collaboration in all our endeavors.
+            {% endif %}
+        </p>
+    </div>
+</section>
+
+<section class="vision-section">
+    <div class="container">
+        <h1 class="vision-title">Our Vision</h1>
+        <p class="vision-content">{% if vision_statement %}
+            {{ vision_statement }}
+            {% else %}
+            Our vision at Tregal Consult is to be a global leader in consulting services, recognized for our expertise, innovation, and dedication to creating lasting value for our clients and communities. We aspire to shape the future of business through transformative strategies and solutions.
+            {% endif %}
+        </p>
+    </div>
+</section>
+
+{% endblock %}

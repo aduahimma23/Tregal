@@ -105,28 +105,28 @@
     
     <!-- Package Links -->
     <div class="chose-package">
-            <ul class="package-item">
-                <li><a class="package-link" href="">Africa</a></li>
-                <li><a class="package-link" href="">Asia</a></li>
-                <li><a class="package-link" href="">Europe</a></li>
-                <li><a class="package-link" href="">America</a></li>
-                <li><a class="package-link" href="">Australia</a></li>
-            </ul>
+        <ul class="package-item">
+            <li><a class="package-link" href="">Africa</a></li>
+            <li><a class="package-link" href="">Asia</a></li>
+            <li><a class="package-link" href="">Europe</a></li>
+            <li><a class="package-link" href="">America</a></li>
+            <li><a class="package-link" href="">Australia</a></li>
+        </ul>
     </div>
 
         <div class="row g-4">
             <!-- Package 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
+            <div class="col-md-6 col-lg-4 package">
+                <div class="package-card card h-100">
                     <img src="{% static 'images/packages/africa.jpg' %}" class="card-img-top" alt="Africa Tour">
                     <div class="card-body">
                         <h5 class="card-title">African Safari</h5>
-                        <p class="card-text">
-                            <strong>Days:</strong> 7 <br>
-                            <strong>Price:</strong> $1500 <br>
-                            <strong>Start Date:</strong> 10 Feb 2026
+                        <p class="card-text package-details">
+                            <strong class="package-days">Days:</strong> 7 <br>
+                            <strong class="package-price">Price:</strong> $1500 <br>
+                            <strong class="package-start-date">Start Date:</strong> 10 Feb 2026
                         </p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="package-btn">View Details</a>
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@
                             <strong>Price:</strong> $1800 <br>
                             <strong>Start Date:</strong> 5 Mar 2026
                         </p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="package-btn">View Details</a>
                     </div>
                 </div>
             </div>
@@ -158,11 +158,106 @@
                             <strong>Price:</strong> $2000 <br>
                             <strong>Start Date:</strong> 20 Apr 2026
                         </p>
-                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="package-btn">View Details</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+{% if partners %}
+<section class="partners-section">
+    <h3 class="partners-header mb-4">Our Partner Institutions</h3>
+    <div class="partners-grid">
+        {% for partner in partners %}
+        <a href="{{ partner.website }}" target="_blank" class="partner-card">
+            <img src="{{ partner.logo.url }}" alt="{{ partner.name }}">
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+
+<!-- Scholarships Section -->
+<div class="container scholarship-container">
+    <div class="scholarsip-header">
+        <h2 class="scholarship-title">Available Scholarships</h2>
+        <p class="text-muted">Explore scholarship opportunities and plan your academic journey</p> 
+    </div>
+
+    <div class="row">
+        {% for scholarship in scholarships %}
+        <div class="col-md-6 mb-4">
+            <div class="card scholarship-card">
+
+                <div class="card-body">
+                    <!-- Header -->
+                    <h5 class="card-title">
+                        {{ scholarship.name|default:"Scholarship Program" }}
+                    </h5>
+                    <p class="text-muted mb-2">
+                        <strong>School:</strong> {{ scholarship.school_name }}
+                    </p>
+                    <p class="text-muted mb-3">
+                        <strong>Country:</strong> {{ scholarship.origin|default:"Not specified" }}
+                    </p>
+
+                    <!-- Description -->
+                    <p class="card-text">
+                        {{ scholarship.description|truncatewords:30 }}
+                    </p>
+
+                    <!-- Details -->
+                    <div class="mb-3">
+                        <p><strong>Eligibility:</strong></p>
+                        <p class="small text-muted">
+                            {{ scholarship.eligibility_criteria|truncatewords:20 }}
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <p><strong>Application Process:</strong></p>
+                        <p class="small text-muted">
+                            {{ scholarship.application_process|truncatewords:20 }}
+                        </p>
+                    </div>
+
+                    <!-- Footer info -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge bg-warning text-dark">
+                            Deadline: {{ scholarship.deadline|date:"M d, Y" }}
+                        </span>
+                        <a href="#" class="scholarship-btn">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="no-scholarships">No scholarships available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="container test-container mt-10">
+    <h3 class="test-header mb-4">Meet Our Travellers</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 testimonial-card text-center">
+                <div class="card-body">
+                    <!-- Traveller Image -->
+                    <img src="{% static 'images/testimonials/user1.jpg' %}" 
+                         class="testimonial-img mb-3" 
+                         alt="Traveller">
+                    <p class="text-muted">United Kingdom</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -131,17 +131,17 @@ class SocialMediaLink(models.Model):
         return self.platform_name
     
 class ScholarshipInfo(models.Model):
-    name = models.CharField(max_length=200, blank=True, null=True)
+    Organization_name = models.CharField(max_length=200, blank=True, null=True)
     origin = models.CharField(max_length=200, blank=True, null=True)
-    school_name = models.CharField(max_length=200)
+    school_name = models.CharField(max_length=200, default="Not Specified")
+    flyer = models.ImageField(upload_to='scholarships/', blank=True, null=True)
     description = models.TextField(max_length=1500)
     eligibility_criteria = models.TextField()
-    application_process = models.TextField()
     deadline = models.DateField(blank=False, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.Organization_name
 
 class PartnerInstitution(models.Model):
     name = models.CharField(max_length=200)
@@ -154,6 +154,7 @@ class PartnerInstitution(models.Model):
     
 class SpecialOffer(models.Model):
     title = models.CharField(max_length=200)
+    flyer = models.ImageField(upload_to='special_offers/')
     description = models.TextField()
     discount_percentage = models.DecimalField(max_digits=5, decimal_places=2)
     valid_until = models.DateField()

@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Scholar | Tregal Consult{% endblock %}
+{% block content %}
+
+<!-- Scholarships Section -->
+<section class="scholarship-container">
+    <div class="scholarship-inner">
+
+        <div class="scholarship-header">
+            <h2 class="scholarship-title">Get the opportunity to study abroad for free</h2>
+            <p class="scholarship-subtitle">
+                Explore scholarship opportunities and plan your academic journey
+            </p>
+        </div>
+
+        <div class="scholarship-grid">
+            {% for scholarship in scholarships %}
+            <div class="scholarship-card">
+
+                <!-- Image FIRST -->
+                {% if scholarship.flyer %}
+                <img src="{{ scholarship.flyer.url }}" alt="{{ scholarship.school_name }}" class="scholarship-img">
+                {% endif %}
+
+                <div class="scholarship-body">
+                    <h5 class="scholarship-name">
+                        {{ scholarship.name|default:"Scholarship Program" }}
+                    </h5>
+
+                    <p class="meta">
+                        <strong>School:</strong> {{ scholarship.school_name }}
+                    </p>
+
+                    <p class="meta">
+                        <strong>Country:</strong> {{ scholarship.origin|default:"Not specified" }}
+                    </p>
+
+                    <p class="description">
+                        {{ scholarship.description|truncatewords:30 }}
+                    </p>
+
+                    <div class="info-block">
+                        <strong>Eligibility</strong>
+                        <p>{{ scholarship.eligibility_criteria|truncatewords:20 }}</p>
+                    </div>
+
+                    <div class="info-block">
+                        <strong>Application Process</strong>
+                        <p>{{ scholarship.application_process|truncatewords:20 }}</p>
+                    </div>
+
+                    <div class="scholarship-footer">
+                        <span class="deadline">
+                            Deadline: {{ scholarship.deadline|date:"M d, Y" }}
+                        </span>
+                        <a href="#" class="scholarship-btn">View Details</a>
+                    </div>
+                </div>
+
+            </div>
+            {% empty %}
+            <p class="no-scholarships">No scholarships available at the moment.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+<!-- End Scholarships Section -->
+
+{% endblock %}

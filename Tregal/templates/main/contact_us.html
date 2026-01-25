@@ -1,0 +1,102 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Contact us | Tregal Consult{% endblock %}
+{% block content %}
+
+<section id="contact" class="section-bg wow fadeInUp">
+    <div class="container">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you.</p>
+        </div>
+
+        <div class="row contact-info">
+            <!-- Address -->
+            <div class="col-md-4">
+                <div class="contact-address">
+                <i class="ion-ios-location-outline"></i>
+                <h3>Address</h3>
+                <address>
+                    {{ contact.address }}
+                </address>
+            </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-4">
+            <div class="contact-phone">
+            <i class="ion-ios-telephone-outline"></i>
+            <h3>Phone Number</h3>
+            <p>
+                <a href="tel:{{ contact.phone_number }}">
+                {{ contact.phone_number }}
+                </a>
+            </p>
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-4">
+            <div class="contact-email">
+                <i class="ion-ios-email-outline"></i>
+                <h3>Email</h3>
+                <p>
+                    <a href="mailto:{{ contact.email }}">
+                    {{ contact.email }}
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control"
+                    placeholder="Your Name" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input type="email" name="email" class="form-control"
+                    placeholder="Your Email" required>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <input type="text" name="subject" class="form-control"
+                    placeholder="Subject" required>
+            </div>
+
+            <div class="form-group">
+            <textarea name="message" rows="5"
+                        class="form-control"
+                        placeholder="Message" required></textarea>
+            </div>
+
+            <div class="text-center">
+            <button type="submit">Send Message</button>
+            </div>
+        </form>
+        </div>
+
+    </div>
+</section>
+<!-- End Contact Section -->
+
+<div class="site ">
+    <h3 class="follow-us">Follow us on Social Media</h3>
+    <div class="wrapper">
+        <a href="#"><div class="bg-ico" id="facebook"><i class="fab fa-facebook social  facebook fa-3x"></i></div></a>
+        <a href="#"><div class="bg-ico" id="twitter"><i class="fab fa-twitter social  twitter fa-3x"></i></div></a>
+        <a href="#"><div class="bg-ico" id="instagram"><i class="fab fa-instagram social  instagram fa-3x"></i></div></a>
+        <a href="#"><div class="bg-ico" id="whatsapp"><i class="fab fa-whatsapp social  whatsapp fa-3x"></i></div></a>
+        <a href="#"><div class="bg-ico" id="youtube"><i class="fab fa-youtube social  youtube fa-3x"></i></div></a>
+    </div>
+</div>
+
+{% endblock %}

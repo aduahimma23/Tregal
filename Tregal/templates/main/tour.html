@@ -1,0 +1,96 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Tour | Tregal Consult{% endblock %}
+{% block content %}
+
+<div class="tour-container">
+    <div class="tour-header">
+        <h2>Tour Packages</h2>
+        <p class="text-muted">
+            Discover our handpicked travel experiences
+        </p>
+    </div>
+
+    <div class="row">
+        {% for package in packages %}
+        <div class="col-md-4 mb-4">
+            <div class="card tour-card">
+
+                <!-- Image -->
+                <img src="{{ package.image.url }}" 
+                     class="card-img-top" 
+                     alt="{{ package.name }}">
+
+                <!-- Card Body -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ package.name }}</h5>
+
+                    <p class="card-text">
+                        {{ package.description|truncatewords:18 }}
+                    </p>
+
+                    <ul class="list-unstyled small mb-3">
+                        <li><strong>Duration:</strong> {{ package.duration }}</li>
+                        <li><strong>Price:</strong> ${{ package.price }}</li>
+                    </ul>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="main-btn w-100">
+                        View Package
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        {% empty %}
+        <p class="tour-empty">No tour packages available.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="trending-container mt-5 mb-5">
+    <div class="trending-header mb-5">
+        <h2>Trending Destinations</h2>
+        <p class="text-muted">
+            Hot destinations travelers are loving right now
+        </p>
+    </div>
+
+    <div class="row">
+        {% for item in trending %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm destination-card">
+
+                <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+
+                <div class="card-body">
+                    <h5>{{ item.name }}</h5>
+                    <p>{{ item.description|truncatewords:15 }}</p>
+
+                    <ul class="list-unstyled small">
+                        <li><strong>Destination:</strong> {{ item.destination }}</li>
+                        <li><strong>Duration:</strong> {{ item.duration }}</li>
+                        <li><strong>Deadline:</strong> {{ item.deadline|date:"M d, Y" }}</li>
+                    </ul>
+
+                    <h6 class="text-primary">${{ item.price }}</h6>
+                </div>
+
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="main-btn w-100">
+                        Explore
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        {% empty %}
+        <p class="trending-header">No tour packages available.</p>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

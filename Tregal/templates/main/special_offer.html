@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Special Offers | Tregal Consult{% endblock %}
+{% block content %}
+
+<section class="special-offers-section">
+    <div class="offers-container">
+        <h2>Special Offers</h2>
+        <div class="offers-grid">
+            {% for offer in special_offers %}
+            <div class="offer-card">
+                <img src="{{ offer.flyer.url }}" alt="{{ offer.title }}" class="offer-img">
+                <h3 class="offer-title">{{ offer.title }}</h3>
+                <p class="offer-description">{{ offer.description }}</p>
+                <span class="offer-discount">{{ offer.discount_percentage }}% OFF</span>
+                <p class="offer-validity">Valid Until: {{ offer.valid_until }}</p>
+                <a href="#" class="btn-apply">View Details</a>
+            </div>
+            {% empty %}
+            <p>No special offers available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
